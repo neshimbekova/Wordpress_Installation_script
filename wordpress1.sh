@@ -18,12 +18,13 @@
 #This lines below download a compressed archive file that contains all of
 #the wordpress files that we need; unpack package and securily transfer them to the 'html' folder
 
-	cd ~/ && wget https://wordpress.org/latest.tar.gz
-	tar xzvf ~/latest.tar.gz && rsync -avP ~/wordpress/ /var/www/html/
+	wget -qP /tmp http://wordpress.org/latest.tar.gz
+	tar xzf /tmp/latest.tar.gz -C /tmp
+	rsync -aqP /tmp/wordpress/ /var/www/html/
 #A sample configuration file that mostly matches the settings we need is included by default, so we need copy it 
 #to the new wp-config.php and change the ownership of the 'html' folder
 	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
-	chown -R apache:apache /var/www/html/
+	chown -R apache:apache /var/www/html/*
 
 #The rest of the script will interact with the user and ask if it has DataBase installed or not. If yes, you will be asked DataBase name
 #user name and password to change configuration file. If you didn't install database yet, then will work scenario 'b', where it does secure
