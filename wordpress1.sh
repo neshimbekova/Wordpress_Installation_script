@@ -1,6 +1,6 @@
 #!/bin/bash
 #Simple bash script, that installs LAMP package and WordPress.
-#Testen in GCP and AWS on CentOS6
+#Testen in GCP and AWS on CentOS7
 
 #First line installs -wget and -vim commands; also LAMP pakckage
 	yum install wget vim httpd php-gd php php-mysql mysql -y
