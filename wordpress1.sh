@@ -55,10 +55,10 @@ read -p "Please enter password for your msyql-admin :" adminpasswd
 	mysql -u root -p"$adminpasswd" -e "FLUSH PRIVILEGES"
 	
 	#Create database, user, adminpasswdword
-	read -p "Enter a database name " newdbname
+read -p "Enter a database name " newdbname
  	mysql -u root -p"$adminpasswd" -e "CREATE DATABASE $newdbname "
- 	read -p "Enter database user name :" wpuser
- 	read -p "Enter password for the user $wpuser " wpuserpasswd
+read -p "Enter database user name :" wpuser
+read -p "Enter password for the user $wpuser " wpuserpasswd
 	mysql -u root -p"$adminpasswd" -e "GRANT ALL on $newdbname.* to $wpuser identified by '$wpuserpasswd' "
 	
 	sed -i "/DB_NAME/s/'[^']*'/'$newdbname'/2" /var/www/html/wp-config.php
