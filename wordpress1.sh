@@ -1,5 +1,5 @@
 #!/bin/bash
-#This code safes 'latest.tar.gz' file under '/root' folder in AWS
+#Working on "hashing" the password
 	yum install wget httpd vim php-gd php php-mysql mysql -y
 
 	wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
